@@ -1,6 +1,6 @@
 //
 //  Errors.swift
-//  Uapp
+//  MemeMaker
 //
 //  Created by Алексей Черенов on 25.10.2020.
 //

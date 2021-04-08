@@ -41,5 +41,19 @@
 "editor" = "Editor";
 "text" = "Text";
 "color" = "Color";
+"size" = "Shape";
 "noElementsSelected" = "There is no selected elements";
+"needsOnlyOneLabelErrorText" = "You need to select only one label to edit text!";
+"sampleText" = "Sample text";
+"saveImageSuccessText" = "Image was successfully saved!";
+"chooseFont" = "Choose font";
+"fontSize" = "Font size";
+"chooseLabelTextColor" = "Choose label text color";
+"chooseLabelBackgroundColor" = "Choose label background color";
+"width" = "Width";
+"height" = "Height";
+"cornerRadius" = "Corner radius";
 
+// Mark: TextEditon
+"placeholderText" = "Enter text";
+"save" = "Save";

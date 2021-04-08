@@ -33,7 +33,7 @@ final class LoadingViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         
         _view.hideLogo()
-        DispatchQueue.main.asyncAfter(deadline: .now() + _view.hideLogoDuration * 0.9) { [ weak self ] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + _view.hideLogoDuration * 0.7) { [ weak self ] in
             self?.coordinator.showTemplates()
         }
     }

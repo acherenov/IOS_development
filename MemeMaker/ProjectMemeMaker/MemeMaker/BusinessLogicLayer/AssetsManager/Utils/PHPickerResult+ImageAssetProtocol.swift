@@ -1,6 +1,6 @@
 //
 //  PHPickerResult+ImageAssetProtocol.swift
-//  Uapp
+//  MemeMaker
 //
 //  Created by Алексей Черенов on 22.10.2020.
 //

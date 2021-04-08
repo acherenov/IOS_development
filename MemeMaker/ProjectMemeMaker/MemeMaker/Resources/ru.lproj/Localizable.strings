@@ -34,11 +34,26 @@
 "appName" = "Meme Maker";
 
 // Mark: Main
-"settings" = "Settings";
-"Templates" = "Templates";
+"settings" = "Настройки";
+"Templates" = "Шаблоны";
 
 // Mark: Editon
 "editor" = "Редактр";
 "text" = "Текст";
 "color" = "Цвет";
+"size" = "Геометрия";
 "noElementsSelected" = "Ни один элемент не выбран";
+"needsOnlyOneLabelErrorText" = "Для редактирования текста нужно выбрать ровно одну надпись!";
+"sampleText" = "Sample text";
+"saveImageSuccessText" = "Изображение успешно сохранено!";
+"chooseFont" = "Выбрать шрифт";
+"fontSize" = "Размер шрифта";
+"chooseLabelTextColor" = "Выбрать цвет текста";
+"chooseLabelBackgroundColor" = "Выбрать цвет фона";
+"width" = "Ширина";
+"height" = "Высота";
+"cornerRadius" = "Скругление краев";
+
+// Mark: TextEditon
+"placeholderText" = "Введите текст";
+"save" = "Сохранить";

@@ -78,4 +78,20 @@ class UIStyleManager {
         textField.attributedPlaceholder = NSAttributedString(string: placeholderText,
                                                              attributes: attributes)
     }
+    
+    // MARK: - UIButton
+    
+    static func buttonDefault(_ button: ButtonWithTouchSize) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = R.color.main()
+        button.layer.cornerRadius = 30
+        button.setTitleColor(R.color.tintColorLight(), for: .normal)
+        button.setTitleColor(R.color.tintColorLight(), for: .selected)
+        button.setTitleColor(R.color.tintColorLight(), for: .highlighted)
+        button.titleLabel?.font = R.font.gilroySemibold(size: 16)
+        button.setDefaultAreaPadding()
+        NSLayoutConstraint.activate([
+            button.heightAnchor.constraint(equalToConstant: 60),
+        ])
+    }
 }

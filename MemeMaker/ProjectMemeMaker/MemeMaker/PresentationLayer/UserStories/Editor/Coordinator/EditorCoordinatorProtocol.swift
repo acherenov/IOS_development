@@ -7,4 +7,5 @@
 
 protocol EditorCoordinatorProtocol: DefaultCoordinatorProtocol {
     
+    func showTextEditor(startText: String, output: TextEditorOutput)
 }

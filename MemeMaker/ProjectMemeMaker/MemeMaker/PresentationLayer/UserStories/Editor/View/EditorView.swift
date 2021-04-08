@@ -13,17 +13,20 @@ final class EditorView: UIView {
     
     let imageContainer = FitImageContainer()
     
+    let removeLabelButton = ButtonWithTouchSize()
+    let editLabelButton = ButtonWithTouchSize()
     let addLabelButton = ButtonWithTouchSize()
     let scroll = UIScrollView()
     
     let noElementsSelectedLabel = UILabel()
     
+    let editorContentView = UIView()
     let menuSegment = LabelsSegmentedControl()
     let menuSelectionView = UIView()
     
-    let textMenuContainer = UIView()
-    
-    let colorMenuContainer = UIView()
+    let textMenuContainer = TextOptionsView()
+    let colorMenuContainer = ColorOptionsView()
+    let shapeMenuContainer = ShapeOptionsView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,18 +43,24 @@ final class EditorView: UIView {
     // MARK: - UI elements actions
 
     @objc private func menuSegmentSelectionDidChanged(sender: LabelsSegmentedControl) {
-        textMenuContainer.isHidden = false
-        colorMenuContainer.isHidden = false
         switch sender.selectedSegmentIndex {
         case 0:
             UIView.animate(withDuration: 0.3) { [ weak self ] in
                 self?.textMenuContainer.alpha = 1
                 self?.colorMenuContainer.alpha = 0
+                self?.shapeMenuContainer.alpha = 0
+            }
+        case 1:
+            UIView.animate(withDuration: 0.3) { [ weak self ] in
+                self?.textMenuContainer.alpha = 0
+                self?.colorMenuContainer.alpha = 1
+                self?.shapeMenuContainer.alpha = 0
             }
         default:
             UIView.animate(withDuration: 0.3) { [ weak self ] in
                 self?.textMenuContainer.alpha = 0
-                self?.colorMenuContainer.alpha = 1
+                self?.colorMenuContainer.alpha = 0
+                self?.shapeMenuContainer.alpha = 1
             }
         }
     }
@@ -62,15 +71,13 @@ final class EditorView: UIView {
         if animated {
             UIView.animate(withDuration: 0.3) { [ weak self ] in
                 self?.noElementsSelectedLabel.alpha = visible ? 1 : 0
-                self?.menuSegment.alpha = visible ? 0 : 1
-                self?.textMenuContainer.isHidden = !visible
-                self?.colorMenuContainer.isHidden = !visible
+                self?.editorContentView.alpha = visible ? 0 : 1
+                self?.scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: animated)
             }
         } else {
             noElementsSelectedLabel.alpha = visible ? 1 : 0
-            menuSegment.alpha = visible ? 0 : 1
-            textMenuContainer.isHidden = !visible
-            colorMenuContainer.isHidden = !visible
+            editorContentView.alpha = visible ? 0 : 1
+            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: animated)
         }
     }
 
@@ -80,6 +87,16 @@ final class EditorView: UIView {
         isUserInteractionEnabled = true
         backgroundColor = R.color.backgroundLight()
         
+        setupScreenTopViews()
+        setupMenu()
+        
+        manageNoContentLabelVisibility(visible: true, animated: false)
+
+        makeConstraints()
+        makeEditorContentViewConstraints()
+    }
+    
+    private func setupScreenTopViews() {
         saveButton.setImage(R.image.save(), for: .normal)
         saveButton.setImage(R.image.save(), for: .selected)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
@@ -92,14 +109,6 @@ final class EditorView: UIView {
         imageContainer.isUserInteractionEnabled = true
         imageContainer.imageView.isUserInteractionEnabled = true
         imageContainer.imageView.layer.masksToBounds = true
-
-        setupMenu()
-        setupTextMenu()
-        setupColorMenu()
-        
-        manageNoContentLabelVisibility(visible: true, animated: false)
-
-        makeConstraints()
     }
     
     private func setupMenu() {
@@ -107,27 +116,27 @@ final class EditorView: UIView {
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.backgroundColor = R.color.tintColorLight()
         scroll.roundCorners(corners: [.topRight, .topLeft], radius: 40)
+        scroll.showsVerticalScrollIndicator = false
         
-        addSubview(addLabelButton)
-        addLabelButton.translatesAutoresizingMaskIntoConstraints = false
-        addLabelButton.layer.cornerRadius = 28
-        addLabelButton.setDefaultAreaPadding()
-        addLabelButton.backgroundColor = R.color.backgroundLight()
-        addLabelButton.layer.borderWidth = 5
-        addLabelButton.layer.borderColor = R.color.tintColorLight()?.cgColor
-        addLabelButton.setImage(R.image.plus(), for: .normal)
-        addLabelButton.setImage(R.image.plus(), for: .selected)
-        addLabelButton.tintColor = R.color.tintColorLight()
+        setupRoundButton(addLabelButton, image: R.image.plus())
+        setupRoundButton(editLabelButton, image: R.image.edit())
+        setupRoundButton(removeLabelButton, image: R.image.remove())
+
+        scroll.addSubview(editorContentView)
+        editorContentView.translatesAutoresizingMaskIntoConstraints = false
+        editorContentView.backgroundColor = R.color.tintColorLight()
         
-        scroll.addSubview(menuSegment)
+        editorContentView.addSubview(menuSegment)
         menuSegment.translatesAutoresizingMaskIntoConstraints = false
         menuSegment.backgroundColor = R.color.main()
         menuSegment.layer.cornerRadius = 30
         menuSegment.selectionView.backgroundColor = .clear
         menuSegment.addTextSegment(R.string.localizable.text())
         menuSegment.addTextSegment(R.string.localizable.color())
+        menuSegment.addTextSegment(R.string.localizable.size())
         menuSegment.addTarget(self, action: #selector(menuSegmentSelectionDidChanged(sender:)), for: .valueChanged)
         menuSegment.setSelectedSegmentIndex(0)
+        menuSegmentSelectionDidChanged(sender: menuSegment)
         
         menuSegment.selectionView.addSubview(menuSelectionView)
         menuSelectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -141,18 +150,33 @@ final class EditorView: UIView {
         noElementsSelectedLabel.numberOfLines = 0
         noElementsSelectedLabel.text = R.string.localizable.noElementsSelected()
         noElementsSelectedLabel.textAlignment = .center
+        
+        editorContentView.addSubview(textMenuContainer)
+        textMenuContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        editorContentView.addSubview(colorMenuContainer)
+        colorMenuContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        editorContentView.addSubview(shapeMenuContainer)
+        shapeMenuContainer.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupRoundButton(_ button: ButtonWithTouchSize, image: UIImage?) {
+        addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 28
+        button.setDefaultAreaPadding()
+        button.backgroundColor = R.color.backgroundLight()
+        button.layer.borderWidth = 5
+        button.layer.borderColor = R.color.tintColorLight()?.cgColor
+        button.setImage(image, for: .normal)
+        button.setImage(image, for: .selected)
+        button.setImage(image, for: .highlighted)
+        button.tintColor = R.color.tintColorLight()
     }
     
     private func setupTextMenu() {
-        scroll.addSubview(textMenuContainer)
-        textMenuContainer.translatesAutoresizingMaskIntoConstraints = false
-        textMenuContainer.backgroundColor = .clear
-    }
-    
-    private func setupColorMenu() {
-        scroll.addSubview(colorMenuContainer)
-        colorMenuContainer.translatesAutoresizingMaskIntoConstraints = false
-        colorMenuContainer.backgroundColor = .clear
+        
     }
 
     private func makeConstraints() {
@@ -167,23 +191,42 @@ final class EditorView: UIView {
             
             scroll.centerXAnchor.constraint(equalTo: centerXAnchor),
             scroll.widthAnchor.constraint(equalTo: widthAnchor),
-            scroll.topAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 40),
+            scroll.topAnchor.constraint(equalTo: imageContainer.bottomAnchor, constant: 30),
             scroll.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            noElementsSelectedLabel.heightAnchor.constraint(equalTo: scroll.heightAnchor, constant: -10),
+            noElementsSelectedLabel.heightAnchor.constraint(equalTo: scroll.heightAnchor, multiplier: 0.7),
             noElementsSelectedLabel.widthAnchor.constraint(equalTo: scroll.widthAnchor, multiplier: 0.6),
             noElementsSelectedLabel.centerXAnchor.constraint(equalTo: scroll.centerXAnchor),
-            noElementsSelectedLabel.centerYAnchor.constraint(equalTo: scroll.centerYAnchor),
-            
+            noElementsSelectedLabel.topAnchor.constraint(equalTo: scroll.topAnchor),
+
             addLabelButton.centerYAnchor.constraint(equalTo: scroll.topAnchor, constant: 5),
             addLabelButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             addLabelButton.widthAnchor.constraint(equalToConstant: 56),
             addLabelButton.heightAnchor.constraint(equalToConstant: 56),
             
-            menuSegment.topAnchor.constraint(equalTo: scroll.topAnchor, constant: 55),
+            editLabelButton.centerYAnchor.constraint(equalTo: addLabelButton.centerYAnchor),
+            editLabelButton.rightAnchor.constraint(equalTo: addLabelButton.leftAnchor, constant: -15),
+            editLabelButton.widthAnchor.constraint(equalTo: addLabelButton.widthAnchor),
+            editLabelButton.heightAnchor.constraint(equalTo: addLabelButton.heightAnchor),
+            
+            removeLabelButton.centerYAnchor.constraint(equalTo: addLabelButton.centerYAnchor),
+            removeLabelButton.leftAnchor.constraint(equalTo: addLabelButton.rightAnchor, constant: 15),
+            removeLabelButton.widthAnchor.constraint(equalTo: addLabelButton.widthAnchor),
+            removeLabelButton.heightAnchor.constraint(equalTo: addLabelButton.heightAnchor)
+        ])
+    }
+    
+    private func makeEditorContentViewConstraints() {
+        NSLayoutConstraint.activate([
+            editorContentView.topAnchor.constraint(equalTo: scroll.topAnchor),
+            editorContentView.bottomAnchor.constraint(equalTo: scroll.bottomAnchor),
+            editorContentView.widthAnchor.constraint(equalTo: widthAnchor, constant: -10),
+            editorContentView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            menuSegment.topAnchor.constraint(equalTo: editorContentView.topAnchor, constant: 50),
             menuSegment.centerXAnchor.constraint(equalTo: centerXAnchor),
             menuSegment.heightAnchor.constraint(equalToConstant: 61),
-            menuSegment.widthAnchor.constraint(equalTo: widthAnchor, constant: -66),
+            menuSegment.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
             
             menuSelectionView.heightAnchor.constraint(equalTo: menuSegment.selectionView.heightAnchor, constant: -10),
             menuSelectionView.widthAnchor.constraint(equalTo: menuSegment.selectionView.widthAnchor, constant: -10),
@@ -191,16 +234,19 @@ final class EditorView: UIView {
             menuSelectionView.centerYAnchor.constraint(equalTo: menuSegment.selectionView.centerYAnchor),
             
             textMenuContainer.topAnchor.constraint(equalTo: menuSegment.bottomAnchor, constant: 30),
-            textMenuContainer.bottomAnchor.constraint(equalTo: scroll.bottomAnchor, constant: -30),
+            textMenuContainer.bottomAnchor.constraint(lessThanOrEqualTo: editorContentView.bottomAnchor, constant: -30),
             textMenuContainer.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
-            textMenuContainer.centerXAnchor.constraint(equalTo: scroll.centerXAnchor),
-            textMenuContainer.heightAnchor.constraint(equalToConstant: 500),
+            textMenuContainer.centerXAnchor.constraint(equalTo: editorContentView.centerXAnchor),
             
             colorMenuContainer.topAnchor.constraint(equalTo: menuSegment.bottomAnchor, constant: 30),
-            colorMenuContainer.bottomAnchor.constraint(equalTo: scroll.bottomAnchor, constant: -30),
+            colorMenuContainer.bottomAnchor.constraint(lessThanOrEqualTo: editorContentView.bottomAnchor, constant: -30),
             colorMenuContainer.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
-            colorMenuContainer.centerXAnchor.constraint(equalTo: scroll.centerXAnchor),
-            colorMenuContainer.heightAnchor.constraint(equalToConstant: 500)
+            colorMenuContainer.centerXAnchor.constraint(equalTo: editorContentView.centerXAnchor),
+            
+            shapeMenuContainer.topAnchor.constraint(equalTo: menuSegment.bottomAnchor, constant: 30),
+            shapeMenuContainer.bottomAnchor.constraint(lessThanOrEqualTo: editorContentView.bottomAnchor, constant: -30),
+            shapeMenuContainer.widthAnchor.constraint(equalTo: widthAnchor, constant: -30),
+            shapeMenuContainer.centerXAnchor.constraint(equalTo: editorContentView.centerXAnchor)
         ])
     }
 }

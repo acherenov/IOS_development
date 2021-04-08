@@ -9,15 +9,16 @@ import UIKit
 
 protocol DragableLabelDelegate: class {
     
-    func labelDidTapped(_ label: DragableLabel)
-    func labelStartDragging(_ label: DragableLabel)
-    func labelEndDragging(_ label: DragableLabel)
+    func labelDidTapped(_ label: DragableLabelView)
+    func labelStartDragging(_ label: DragableLabelView)
+    func labelEndDragging(_ label: DragableLabelView)
 }
 
-class DragableLabel: UILabel {
+class DragableLabelView: UIView {
     
     weak var delegate: DragableLabelDelegate?
     
+    let label = UILabel()
     let selectionView = UIView()
     
     private(set) var isSelected: Bool = false
@@ -71,8 +72,12 @@ class DragableLabel: UILabel {
         let touchRelativePoint = CGPoint(x: touch.x - superviewCenter.x, y: touch.y - superviewCenter.y)
         let x = touchRelativePoint.x
         let y = touchRelativePoint.y
+        let yFingerModifier: CGFloat = UIConstants.screenBounds.width * -0.2
+        var newCenter = CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y + yFingerModifier)
+        newCenter.x = min(max(newCenter.x, 0), superview.frame.width)
+        newCenter.y = min(max(newCenter.y, 0), superview.frame.height)
         UIView.animate(withDuration: 0.1) { [ weak self ] in
-            self?.center = CGPoint(x: x + superviewCenter.x, y: y + superviewCenter.y)
+            self?.center = newCenter
         }
     }
     
@@ -80,6 +85,10 @@ class DragableLabel: UILabel {
     
     private func setupView() {
         isUserInteractionEnabled = true
+        backgroundColor = .clear
+        
+        addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
 
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handlePan(recognizer:)))
         addGestureRecognizer(longPressRecognizer)
@@ -99,6 +108,11 @@ class DragableLabel: UILabel {
     
     private func makeConstraints() {
         NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.widthAnchor.constraint(equalTo: widthAnchor),
+            label.heightAnchor.constraint(equalTo: heightAnchor),
+            
             selectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
             selectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             selectionView.widthAnchor.constraint(equalTo: widthAnchor, constant: 10),

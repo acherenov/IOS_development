@@ -44,8 +44,20 @@
 		892B1F8A261D2AA100329B0A /* Array+safeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B1F84261D2AA100329B0A /* Array+safeIndex.swift */; };
 		892B1F8B261D2AA100329B0A /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B1F85261D2AA100329B0A /* String+capitalizingFirstLetter.swift */; };
 		892B1FB4261D2F4700329B0A /* CACornerMask+typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B1FB3261D2F4700329B0A /* CACornerMask+typealias.swift */; };
-		892B1FDE261D391000329B0A /* DragableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B1FDD261D391000329B0A /* DragableLabel.swift */; };
 		892B1FE2261D3E6F00329B0A /* UIView+snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B1FE1261D3E6F00329B0A /* UIView+snapshot.swift */; };
+		892B2039261E9F3000329B0A /* TextEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B202F261E9F3000329B0A /* TextEditorViewModel.swift */; };
+		892B203A261E9F3000329B0A /* TextEditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2030261E9F3000329B0A /* TextEditorViewModelProtocol.swift */; };
+		892B203B261E9F3000329B0A /* TextEditorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2032261E9F3000329B0A /* TextEditorCoordinator.swift */; };
+		892B203C261E9F3000329B0A /* TextEditorCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2033261E9F3000329B0A /* TextEditorCoordinatorProtocol.swift */; };
+		892B203D261E9F3000329B0A /* TextEditorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2034261E9F3000329B0A /* TextEditorOutput.swift */; };
+		892B203E261E9F3000329B0A /* TextEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2036261E9F3000329B0A /* TextEditorViewController.swift */; };
+		892B203F261E9F3000329B0A /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2037261E9F3000329B0A /* TextEditorView.swift */; };
+		892B2040261E9F3000329B0A /* TextEditorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2038261E9F3000329B0A /* TextEditorInput.swift */; };
+		892B2046261EBB9C00329B0A /* TextOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2045261EBB9C00329B0A /* TextOptionsView.swift */; };
+		892B205E261EC02600329B0A /* UIView+copyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B205D261EC02600329B0A /* UIView+copyView.swift */; };
+		892B2062261ED7EC00329B0A /* ColorOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2061261ED7EB00329B0A /* ColorOptionsView.swift */; };
+		892B2066261EDF6D00329B0A /* ShapeOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B2065261EDF6D00329B0A /* ShapeOptionsView.swift */; };
+		892B206E261EEC2100329B0A /* DragableLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892B206D261EEC2100329B0A /* DragableLabelView.swift */; };
 		8940645126122B7600DC682F /* CustomPatchEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940644926122B7600DC682F /* CustomPatchEncoding.swift */; };
 		8940645226122B7600DC682F /* CustomArrayEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940644A26122B7600DC682F /* CustomArrayEncoding.swift */; };
 		8940645326122B7600DC682F /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940644B26122B7600DC682F /* DataParser.swift */; };
@@ -168,8 +180,20 @@
 		892B1F84261D2AA100329B0A /* Array+safeIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+safeIndex.swift"; sourceTree = "<group>"; };
 		892B1F85261D2AA100329B0A /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		892B1FB3261D2F4700329B0A /* CACornerMask+typealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CACornerMask+typealias.swift"; sourceTree = "<group>"; };
-		892B1FDD261D391000329B0A /* DragableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragableLabel.swift; sourceTree = "<group>"; };
 		892B1FE1261D3E6F00329B0A /* UIView+snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+snapshot.swift"; sourceTree = "<group>"; };
+		892B202F261E9F3000329B0A /* TextEditorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorViewModel.swift; sourceTree = "<group>"; };
+		892B2030261E9F3000329B0A /* TextEditorViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorViewModelProtocol.swift; sourceTree = "<group>"; };
+		892B2032261E9F3000329B0A /* TextEditorCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorCoordinator.swift; sourceTree = "<group>"; };
+		892B2033261E9F3000329B0A /* TextEditorCoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		892B2034261E9F3000329B0A /* TextEditorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorOutput.swift; sourceTree = "<group>"; };
+		892B2036261E9F3000329B0A /* TextEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorViewController.swift; sourceTree = "<group>"; };
+		892B2037261E9F3000329B0A /* TextEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
+		892B2038261E9F3000329B0A /* TextEditorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextEditorInput.swift; sourceTree = "<group>"; };
+		892B2045261EBB9C00329B0A /* TextOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOptionsView.swift; sourceTree = "<group>"; };
+		892B205D261EC02600329B0A /* UIView+copyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+copyView.swift"; sourceTree = "<group>"; };
+		892B2061261ED7EB00329B0A /* ColorOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOptionsView.swift; sourceTree = "<group>"; };
+		892B2065261EDF6D00329B0A /* ShapeOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeOptionsView.swift; sourceTree = "<group>"; };
+		892B206D261EEC2100329B0A /* DragableLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragableLabelView.swift; sourceTree = "<group>"; };
 		8940644926122B7600DC682F /* CustomPatchEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPatchEncoding.swift; sourceTree = "<group>"; };
 		8940644A26122B7600DC682F /* CustomArrayEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomArrayEncoding.swift; sourceTree = "<group>"; };
 		8940644B26122B7600DC682F /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
@@ -406,7 +430,10 @@
 			children = (
 				892B1F29261A6A2100329B0A /* EditorViewController.swift */,
 				892B1F28261A6A2100329B0A /* EditorView.swift */,
-				892B1FDD261D391000329B0A /* DragableLabel.swift */,
+				892B206D261EEC2100329B0A /* DragableLabelView.swift */,
+				892B2045261EBB9C00329B0A /* TextOptionsView.swift */,
+				892B2061261ED7EB00329B0A /* ColorOptionsView.swift */,
+				892B2065261EDF6D00329B0A /* ShapeOptionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -454,6 +481,45 @@
 				892B1F85261D2AA100329B0A /* String+capitalizingFirstLetter.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		892B202D261E9F3000329B0A /* TextEditor */ = {
+			isa = PBXGroup;
+			children = (
+				892B2034261E9F3000329B0A /* TextEditorOutput.swift */,
+				892B2038261E9F3000329B0A /* TextEditorInput.swift */,
+				892B202E261E9F3000329B0A /* ViewModel */,
+				892B2031261E9F3000329B0A /* Coordinator */,
+				892B2035261E9F3000329B0A /* View */,
+			);
+			path = TextEditor;
+			sourceTree = "<group>";
+		};
+		892B202E261E9F3000329B0A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				892B202F261E9F3000329B0A /* TextEditorViewModel.swift */,
+				892B2030261E9F3000329B0A /* TextEditorViewModelProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		892B2031261E9F3000329B0A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				892B2032261E9F3000329B0A /* TextEditorCoordinator.swift */,
+				892B2033261E9F3000329B0A /* TextEditorCoordinatorProtocol.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		892B2035261E9F3000329B0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				892B2036261E9F3000329B0A /* TextEditorViewController.swift */,
+				892B2037261E9F3000329B0A /* TextEditorView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8940644626122B7600DC682F /* CoreLayer */ = {
@@ -543,6 +609,7 @@
 				894064C42612308800DC682F /* UIScrollView+ScrollToBottom.swift */,
 				894064C52612308800DC682F /* UITextField+placeholderPadding.swift */,
 				892B1FE1261D3E6F00329B0A /* UIView+snapshot.swift */,
+				892B205D261EC02600329B0A /* UIView+copyView.swift */,
 			);
 			path = UIExtensions;
 			sourceTree = "<group>";
@@ -734,6 +801,7 @@
 				8940651D2612327B00DC682F /* Loading */,
 				892B1EDC26181A2C00329B0A /* Templates */,
 				892B1F1E261A6A2100329B0A /* Editor */,
+				892B202D261E9F3000329B0A /* TextEditor */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -983,6 +1051,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892B205E261EC02600329B0A /* UIView+copyView.swift in Sources */,
 				892B1F2E261A6A2100329B0A /* EditorCoordinatorProtocol.swift in Sources */,
 				894064EF2612308800DC682F /* AnnouncementViewController.swift in Sources */,
 				892B1F4F261A77AF00329B0A /* AssetsManagerProtocol.swift in Sources */,
@@ -995,25 +1064,30 @@
 				894064E72612308800DC682F /* UIScrollView+ScrollToBottom.swift in Sources */,
 				892B1EEA26181A2C00329B0A /* TemplatesCoordinator.swift in Sources */,
 				894064A226122D0100DC682F /* UserStoriesModulesAccounting.swift in Sources */,
+				892B203B261E9F3000329B0A /* TextEditorCoordinator.swift in Sources */,
 				892B1EE926181A2C00329B0A /* TemplatesViewModelProtocol.swift in Sources */,
 				89F00AB32542E16200D482F6 /* AppDelegate.swift in Sources */,
 				892B1F51261A77AF00329B0A /* DKAssetsManager.swift in Sources */,
 				89F00AB02542E16200D482F6 /* AppRouter.swift in Sources */,
-				892B1FDE261D391000329B0A /* DragableLabel.swift in Sources */,
 				892B1F3F261A752300329B0A /* MemeTemplates.swift in Sources */,
 				892B1F31261A6A2100329B0A /* EditorViewController.swift in Sources */,
 				89F00AB22542E16200D482F6 /* ApplicationAssembly.swift in Sources */,
 				894064E32612308800DC682F /* UIImage+overlayedColor.swift in Sources */,
 				8940652B2612327C00DC682F /* LoadingOutput.swift in Sources */,
+				892B206E261EEC2100329B0A /* DragableLabelView.swift in Sources */,
+				892B2046261EBB9C00329B0A /* TextOptionsView.swift in Sources */,
 				892B1F2C261A6A2100329B0A /* EditorViewModelProtocol.swift in Sources */,
 				892B1F87261D2AA100329B0A /* UserDefaults+color.swift in Sources */,
 				89DD264B25DC9F0000AD2868 /* R.generated.swift in Sources */,
 				892B1F88261D2AA100329B0A /* Array+weakObjects.swift in Sources */,
 				8940652F2612327C00DC682F /* LoadingViewController.swift in Sources */,
+				892B2040261E9F3000329B0A /* TextEditorInput.swift in Sources */,
 				894064DB2612308800DC682F /* UIView+TapAnimation.swift in Sources */,
 				892B1FB4261D2F4700329B0A /* CACornerMask+typealias.swift in Sources */,
 				89F00AB42542E16200D482F6 /* SceneDelegate.swift in Sources */,
 				894064F22612308800DC682F /* ScrollMovingUpManagerForUIControl.swift in Sources */,
+				892B203D261E9F3000329B0A /* TextEditorOutput.swift in Sources */,
+				892B203C261E9F3000329B0A /* TextEditorCoordinatorProtocol.swift in Sources */,
 				894064D82612308800DC682F /* AlertManager.swift in Sources */,
 				8940645126122B7600DC682F /* CustomPatchEncoding.swift in Sources */,
 				894064DF2612308800DC682F /* UIImageView+setDefaultLoadingInicator.swift in Sources */,
@@ -1023,6 +1097,8 @@
 				894064EE2612308800DC682F /* PaddingLabel.swift in Sources */,
 				8940652C2612327C00DC682F /* LoadingCoordinator.swift in Sources */,
 				894064F52612308800DC682F /* TouchClearUIComponents.swift in Sources */,
+				892B203A261E9F3000329B0A /* TextEditorViewModelProtocol.swift in Sources */,
+				892B203E261E9F3000329B0A /* TextEditorViewController.swift in Sources */,
 				892B1F8B261D2AA100329B0A /* String+capitalizingFirstLetter.swift in Sources */,
 				894064E22612308800DC682F /* String+SizeCalculator.swift in Sources */,
 				8940645626122B7600DC682F /* DataRequestExecutable.swift in Sources */,
@@ -1046,6 +1122,7 @@
 				8940645326122B7600DC682F /* DataParser.swift in Sources */,
 				894064E62612308800DC682F /* UIColor+rgba.swift in Sources */,
 				894065302612327C00DC682F /* LoadingInput.swift in Sources */,
+				892B2039261E9F3000329B0A /* TextEditorViewModel.swift in Sources */,
 				892B1F50261A77AF00329B0A /* PHAssetsManager.swift in Sources */,
 				894064EB2612308800DC682F /* UIViewController+ModuleTransitionHandler.swift in Sources */,
 				892B1EEE26181A2C00329B0A /* TemplatesViewController.swift in Sources */,
@@ -1071,10 +1148,13 @@
 				892B1F2B261A6A2100329B0A /* EditorViewModel.swift in Sources */,
 				89F00A9D2542E16200D482F6 /* UIConstants.swift in Sources */,
 				894064EC2612308800DC682F /* DefaultCoordinator.swift in Sources */,
+				892B2066261EDF6D00329B0A /* ShapeOptionsView.swift in Sources */,
 				894064EA2612308800DC682F /* ModuleTransitionHandler.swift in Sources */,
 				8940645726122B7600DC682F /* CompletionTypealiasesDefault.swift in Sources */,
+				892B203F261E9F3000329B0A /* TextEditorView.swift in Sources */,
 				892B1F2D261A6A2100329B0A /* EditorCoordinator.swift in Sources */,
 				892B1F55261A77AF00329B0A /* PHPickerResult+ImageAssetProtocol.swift in Sources */,
+				892B2062261ED7EC00329B0A /* ColorOptionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,7 +1240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1218,6 +1298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = MemeMaker/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1240,6 +1321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = MemeMaker/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1258,7 +1340,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				SDKROOT = iphoneos;
 			};
 			name = AdHoc;
@@ -1272,6 +1354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LBLG7J3SF4;
 				INFOPLIST_FILE = MemeMaker/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1309,7 +1392,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};

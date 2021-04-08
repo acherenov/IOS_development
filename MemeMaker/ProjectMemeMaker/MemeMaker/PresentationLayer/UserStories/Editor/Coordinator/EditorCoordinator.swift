@@ -30,4 +30,11 @@ final class EditorCoordinator: DefaultCoordinator {
 // MARK: - Interface for view
 extension EditorCoordinator: EditorCoordinatorProtocol {
 
+    func showTextEditor(startText: String, output: TextEditorOutput) {
+        let vc = TextEditorCoordinator.createModule { viewModel in
+            viewModel.text = startText
+            viewModel.output = output
+        }
+        transition.showInNavigationController(vc)
+    }
 }
