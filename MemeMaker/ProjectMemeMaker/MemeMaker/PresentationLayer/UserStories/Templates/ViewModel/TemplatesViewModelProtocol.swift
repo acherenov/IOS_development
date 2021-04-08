@@ -7,5 +7,7 @@
 
 protocol TemplatesViewModelProtocol: class {
     
+    var templates: [MemeTemplate] { get }
+    
     func pickNewPhotoFromAssets(_ completionHandler: @escaping (ImageAssetProtocol) -> Void)
 }

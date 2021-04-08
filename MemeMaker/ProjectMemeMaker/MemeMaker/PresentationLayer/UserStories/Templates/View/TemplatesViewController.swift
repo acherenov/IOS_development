@@ -77,13 +77,13 @@ final class TemplatesViewController: UIViewController {
 extension TemplatesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.templates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemeTemplateCollectionViewCell.identifier, for: indexPath) as! MemeTemplateCollectionViewCell
         
-        cell.setContent(MemeTemplateRemote())
+        cell.setContent(viewModel.templates[indexPath.row])
         
         return cell
     }
@@ -94,7 +94,7 @@ extension TemplatesViewController: UICollectionViewDataSource {
 extension TemplatesViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        coordinator.showEditor(template: MemeTemplateRemote())
+        coordinator.showEditor(template: viewModel.templates[indexPath.row])
     }
 }
 

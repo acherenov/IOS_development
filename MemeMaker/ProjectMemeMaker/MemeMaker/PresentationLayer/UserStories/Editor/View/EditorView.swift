@@ -184,10 +184,10 @@ final class EditorView: UIView {
             saveButton.widthAnchor.constraint(equalToConstant: 18),
             saveButton.heightAnchor.constraint(equalToConstant: 18),
             
-            imageContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            imageContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageContainer.widthAnchor.constraint(equalTo: widthAnchor, constant: -20),
-            imageContainer.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
+            imageContainer.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9),
             
             scroll.centerXAnchor.constraint(equalTo: centerXAnchor),
             scroll.widthAnchor.constraint(equalTo: widthAnchor),
