@@ -1,0 +1,45 @@
+
+// Mark: Network
+"cannotParceData" = "Cannot parce data";
+"wrongCode" = "Wrong code";
+"wrongEmail" = "Wrong email";
+"unknownError" = "Unknown error";
+"errorSendPhoto" = "Failed to send photo";
+"badToken" = "Can not get access to your account";
+"badRoute" = "Route not found";
+"badRequestDataFormat" = "Internal server error or bad request data format";
+
+// Mark: - Common UI
+
+// Mark: LimitatableTextView
+"limit" = "limit";
+"character" = "character";
+"characterLess5" = "characters";
+"characters" = "characters";
+
+// Mark: Alerts
+"error" = "Error!";
+"ok" = "OK";
+"cancel" = "Cancel";
+"continue" = "Continue";
+"select" = "Select";
+"choose color" = "Choose color";
+
+// Mark: Other
+"announcementText" = "Will be added in the next version";
+
+// Mark: - Screen modules
+
+// Mark: Common
+"appName" = "Meme Maker";
+
+// Mark: Main
+"settings" = "Settings";
+"Templates" = "Templates";
+
+// Mark: Editon
+"editor" = "Editor";
+"text" = "Text";
+"color" = "Color";
+"noElementsSelected" = "There is no selected elements";
+

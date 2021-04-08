@@ -1,0 +1,44 @@
+
+// Mark: Network
+"cannotParceData" = "Не удалось получить данные";
+"wrongCode" = "Неправильный код";
+"wrongEmail" = "Некорректная почта";
+"unknownError" = "Неизвестная ошибка";
+"errorSendPhoto" = "Не удалось загрузить фото";
+"badToken" = "Проблема с доступом к Вашему аккаунту";
+"badRoute" = "Нет такого URL";
+"badRequestDataFormat" = "Внутренняя ошибка сервера или неверный формат данных запроса";
+
+// Mark: - Common UI
+
+// Mark: LimitatableTextView
+"limit" = "осталось";
+"character" = "символ";
+"characterLess5" = "символа";
+"characters" = "символов";
+
+// Mark: Alerts
+"error" = "Ошибка!";
+"ok" = "OK";
+"cancel" = "Отмена";
+"continue" = "Продолжить";
+"select" = "Выбрать";
+"choose color" = "Выбор цвета";
+
+// Mark: Other
+"announcementText" = "Будет добавлено в следующих версиях";
+
+// Mark: - Screen modules
+
+// Mark: Common
+"appName" = "Meme Maker";
+
+// Mark: Main
+"settings" = "Settings";
+"Templates" = "Templates";
+
+// Mark: Editon
+"editor" = "Редактр";
+"text" = "Текст";
+"color" = "Цвет";
+"noElementsSelected" = "Ни один элемент не выбран";
